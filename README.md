@@ -70,10 +70,14 @@ The system follows a modular design with the following components:
 - `modules/alert_manager.sh`: Generates and sends alerts
 - `modules/utils.sh`: Provides utility functions
 
+## Contributors ✨
 
+Thanks to these amazing people who contributed to this project:
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+| Contributor | Profile |
+|------------|---------|
+| [Username1](https://github.com/Sumedhvats) | <a href="https://github.com/Sumedhvats"><img src="https://github.com/Sumedhvats.png" width="50" height="50"></a> |
+| [Username2](https://github.com/Mohit137c) | <a href="https://github.com/Mohit137c"><img src="https://github.com/Mohit137c.png" width="50" height="50"></a> |
+| [Username3](https://github.com/Vivek-Anand727) | <a href="https://github.com/Vivek-Anand727"><img src="https://github.com/Vivek-Anand727.png" width="50" height="50"></a> |
 
 
