@@ -68,6 +68,7 @@ teardown() {
     [ "$?" -eq 0 ]
 }
 
+
 # Test error notification
 @test "handle_error sends notification if configured" {
     # Mock send_notification function
