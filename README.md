@@ -90,7 +90,7 @@ send_notification(): Delivers alerts via email
 
 The system will be divided into independent, reusable modules:
 
-![](./images/dfd.png)
+![](./images/dataFlow.png)
 
 ```
 LogMonitor
