@@ -111,37 +111,7 @@ dependencies
 ![](./images/dataFlow.png)
 
 ## Class Diagram Bash Function Organization)
-```
-LogMonitor
-- config: ConfigHandler
-- parser: LogParser
-- alertManager: AlertManager
-+ initialize()
-+ run()
-+ shutdown()
-ConfigHandler
-+ loadConfig()
-+ saveConfig()
-+ getParameter()
-LogParser
-+ acquireLogs()
-+ filterCriticalEvents()
-+ parseLogEntry()
-AlertManager
-+ generateAlert()+ sendNotification()
-+ formatMessage()
-Utilities
-+ logMessage()
-+ handleError()
-+ validateInput()
-
-+ sendNotification()
-+ formatMessage()
-Utilities
-+ logMessage()
-+ handleError()
-+ validateInput()
-```
+![](./images/diagram.png)
 
 ## Deployment Design
 Installation instructions:
