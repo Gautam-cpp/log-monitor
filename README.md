@@ -90,11 +90,29 @@ send_notification(): Delivers alerts via email
 
 The system will be divided into independent, reusable modules:
 
-![](./images/dfd.png)
+## Modularity
+The system will be divided into independent, reusable modules:
+
+
+- log_parser.sh: Handles log acquisition and filtering
+- alert_manager.sh: Manages alert generation and delivery
+- config_handler.sh: Manages configuration settings
+- utils.sh: Contains utility functions shared across modules
+## Cohesion & Coupling
 
 ```
-LogMonitor
+High Cohesion: Each module will focus on a single responsibility
+Low Coupling: Modules will interact through well-defined interfaces, minimizing
+dependencies
 ```
+## Software Architecture Document SAD
+## Data Flow Diagram DFD
+
+![](./images/dataFlow.png)
+
+## Class Diagram Bash Function Organization)
+```
+LogMonitor
 - config: ConfigHandler
 - parser: LogParser
 - alertManager: AlertManager
@@ -110,31 +128,13 @@ LogParser
 + filterCriticalEvents()
 + parseLogEntry()
 AlertManager
-+ generateAlert()
++ generateAlert()+ sendNotification()
++ formatMessage()
+Utilities
++ logMessage()
++ handleError()
++ validateInput()
 
-## Modularity
-
-```
-log_parser.sh: Handles log acquisition and filtering
-alert_manager.sh: Manages alert generation and delivery
-config_handler.sh: Manages configuration settings
-utils.sh: Contains utility functions shared across modules
-```
-## Cohesion & Coupling
-
-```
-High Cohesion: Each module will focus on a single responsibility
-Low Coupling: Modules will interact through well-defined interfaces, minimizing
-dependencies
-```
-## Software Architecture Document SAD
-
-## Data Flow Diagram DFD
-
-## Class Diagram Bash Function Organization)
-
-
-```
 + sendNotification()
 + formatMessage()
 Utilities
@@ -142,7 +142,27 @@ Utilities
 + handleError()
 + validateInput()
 ```
+
+## Deployment Design
 Installation instructions:
+
+
+1)  Clone repository to /opt/log-monitor/
+2) Run install.sh to set up dependencies:
+
+```
+ sudo apt-get install mailutils sendmail
+ ```
+
+3) Configure settings in /etc/log-monitor/config.conf
+2) Set up cron job to run the monitor periodically:
+```
+*/10 * * * * /opt/log-monitor/run_monitor.sh
+```
+## Task 2  Shell Script Implementation with Modular Approach
+
+## Main Script (log_monitor.sh)
+
 
 ```
 #!/bin/bash
@@ -165,25 +185,7 @@ if! load_config "$CONFIG_FILE"; then
 log_message "ERROR" "Failed to load configuration"
 exit 1
 fi
-```
-## Deployment Design
 
-```
-Clone repository to /opt/log-monitor/
-Run install.sh to set up dependencies:
-sudo apt-get install mailutils sendmail
-```
-```
-Configure settings in /etc/log-monitor/config.conf
-Set up cron job to run the monitor periodically:
-*/10 * * * * /opt/log-monitor/run_monitor.sh
-```
-## Task 2  Shell Script Implementation with Modular Approach
-
-## Main Script (log_monitor.sh)
-
-
-```
 # Get log sources from config
 log_sources=$(get_parameter "LOG_SOURCES")
 patterns=$(get_parameter "CRITICAL_PATTERNS")
@@ -214,6 +216,7 @@ trap 'log_message "ERROR" "Script execution interrupted"; exit 1' ERR INT TERM
 # Execute main function
 main
 ```
+## Module: config_handler.sh
 ```
 #!/bin/bash
 # Configuration handling module
@@ -226,11 +229,7 @@ fi
 # Export all variables from config file
 set -a
 source "$config_file"
-```
-## Module: config_handler.sh
 
-
-```
 set +a
 return 0
 }
@@ -255,6 +254,7 @@ echo "$param_name=$param_value" &gt;&gt; "$config_file"
 fi
 }
 ```
+## Module: log_parser.sh
 ```
 #!/bin/bash
 # Log parsing module
@@ -276,11 +276,7 @@ else
 echo "Log source not found: $log_source"
 return 1
 fi
-```
-## Module: log_parser.sh
 
-
-```
 fi
 }
 # Filter critical events based on patterns
@@ -320,15 +316,12 @@ echo "SEVERITY: $severity"
 echo "MESSAGE: $message"
 }
 ```
+## Module: alert_manager.sh
 ```
 #!/bin/bash
 # Alert management module
 # Generate alert message
-```
-## Module: alert_manager.sh
 
-
-```
 generate_alert() {
 local source="$1"
 local events="$2"
@@ -365,8 +358,7 @@ else
 return 1
 fi
 }
-```
-```
+
 #!/bin/bash
 # Utility functions module
 # Log message to file
@@ -425,7 +417,7 @@ return 0
 ## Task 3  Implementation of Software Configuration Management SCM
 
 ## Git Repository Structure
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 
 ## Branching Strategy
 
@@ -523,9 +515,9 @@ time ./log_monitor.sh
 
 ## Risk Management
 ### Technical Risks
-![alt text](image.png)
+![alt text](./images/img1.png)
 ### Operational Risks
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 
 ## Risk Mitigation Strategies
