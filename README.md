@@ -523,9 +523,9 @@ time ./log_monitor.sh
 
 ## Risk Management
 ### Technical Risks
-![alt text](image.png)
+![alt text](./images/img1.png)
 ### Operational Risks
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 
 ## Risk Mitigation Strategies
