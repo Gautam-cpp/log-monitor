@@ -1,0 +1,30 @@
+# Log Monitor Configuration File
+# This is an example configuration file for the Log Monitoring System
+# Rename to config.conf and adjust settings as needed
+
+# Log Sources to monitor (space-separated list)
+# Examples: /var/log/syslog, /var/log/auth.log, systemd
+LOG_SOURCES="/var/log/syslog /var/log/auth.log"
+
+# Critical patterns to search for (space-separated list)
+# These patterns will trigger alerts when found in logs
+CRITICAL_PATTERNS="ERROR CRITICAL FATAL FAILURE \"out of memory\""
+
+# Email settings for notifications
+EMAIL_RECIPIENT="admin@example.com"
+EMAIL_SUBJECT_PREFIX="[LOG-ALERT]"
+
+# Monitoring settings
+CHECK_INTERVAL=10  # Minutes between checks
+TIME_WINDOW="1 hour ago"  # How far back to look for events
+
+# System settings
+LOG_FILE="/var/log/log_monitor.log"
+VERBOSE=0  # Set to 1 for detailed console output
+
+# Error notification settings
+ERROR_NOTIFICATION_EMAIL="sysadmin@example.com"
+
+# Performance settings
+MAX_LOG_SIZE=100000000  # Maximum log file size to process (bytes)
+PARALLEL_PROCESSING=0  # Enable parallel processing (experimental)
