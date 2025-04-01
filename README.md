@@ -73,7 +73,7 @@ The system follows a modular design with the following components:
 ## Contributing
 
 Thanks to all the teammates for making this successfull project
-<a href="https://github.com/Vivek-Anand727"><img src="https://github.com/Vivek-Anand727" width="50" height="50"></a>
+<a href="https://github.com/Vivek-Anand727"><img src="https://github.com/Vivek-Anand727.png" width="50" height="50"></a>
 
 
 ## License
