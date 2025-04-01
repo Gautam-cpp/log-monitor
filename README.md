@@ -550,5 +550,15 @@ time ./log_monitor.sh
 
 
 
+## Contributors ✨
+
+Thanks to these amazing people who contributed to this project:
+
+| Contributor | Profile |
+|------------|---------|
+| [Sumedhvats](https://github.com/Sumedhvats) | <a href="https://github.com/Sumedhvats"><img src="https://github.com/Sumedhvats.png" width="50" height="50"></a> |
+| [Mohit137c](https://github.com/Mohit137c) | <a href="https://github.com/Mohit137c"><img src="https://github.com/Mohit137c.png" width="50" height="50"></a> |
+| [Vivek-Anand727](https://github.com/Vivek-Anand727) | <a href="https://github.com/Vivek-Anand727"><img src="https://github.com/Vivek-Anand727.png" width="50" height="50"></a> |
+
 
 
